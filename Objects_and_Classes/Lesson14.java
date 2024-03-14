@@ -1,5 +1,6 @@
 public class Lesson14 {
     public static void main(String[] args){
+        //Create two aircraft objects using the aircraft class and the constructor
         aircraft cessna172 = new aircraft(4, 140, 56.5, 9.5);
         aircraft piperSaratoga = new aircraft(6, 201, 102.5, 20.5);
 
@@ -20,6 +21,7 @@ public class Lesson14 {
         System.out.println("Piper Saratoga fuel needed for 2 hours: " + piperSaratoga.fuelNeeded(2));
         System.out.println("Piper Saratoga has " + aircraft.wings + " wings");
 
+        //Set the number of passengers for the cessna172 by calling the setPassengers method on a private instance variable
         cessna172.setPassengers(12);
 
         aircraft.wings = 2;
@@ -38,16 +40,18 @@ class aircraft {
     double fuelBurnRate;
     static int wings;
 
+    //This is a constructor
     aircraft(int p, int c, double fc, double fbr){
         passengers = p;
         cruiseSpeed = c;
         fuelCapacity = fc;
         fuelBurnRate = fbr;
     }
-
+//This is a method
     double range(){
         return fuelCapacity / fuelBurnRate;
     }
+    //This is a method and it takes a parameter whose type is double
     double fuelNeeded(double time){
         return fuelBurnRate * time;
     }
